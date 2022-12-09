@@ -82,6 +82,7 @@ main form div img {
 }
 
 main form input {
+  flex: 1;
   width: 234px;
   height: 44px;
   font-family: 'Mulish';
