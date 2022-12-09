@@ -29,7 +29,7 @@ main .signup-text {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 1.2rem;
+  gap: 1.5rem;
   width: 315px;
 }
 
@@ -47,7 +47,6 @@ main p {
   font-family: 'Mulish';
   font-style: normal;
   font-weight: 400;
-  font-size: 16px;
   line-height: 160%;
   text-align: center;
   color: #1F1249;
@@ -59,7 +58,6 @@ main form {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 1.5rem;
 }
 
 main form div {
@@ -81,7 +79,7 @@ main form div img {
   border-right: 1px solid #DBE3FF;
 }
 
-main form input {
+main form input:not(.signup) {
   flex: 1;
   width: 234px;
   height: 44px;
@@ -95,20 +93,23 @@ main form input {
   color: #3B3B3B;
 }
 
-main a {
-  text-decoration: none;
+main .signup-text form .error {
+  min-height: 20px;
+  color: rgb(255, 55, 55);
+  align-self: start;
+  text-align: start;
+}
+
+main .signup {
+  cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0px 50px;
-
+  padding: 20px 50px;
   width: 100%;
-  height: 60px;
-
   background: linear-gradient(113.87deg, #2663DF 14.81%, #758FF0 88.76%);
   box-shadow: 0px 6px 18px #9CADF2;
   border-radius: 10px;
-
   font-family: 'Mulish';
   font-style: normal;
   font-weight: 700;
@@ -117,9 +118,15 @@ main a {
   color: #FFFFFF;
 }
 
-main a:hover {
+main .signup:hover {
   color: #08174E;
   background: linear-gradient(113.87deg, rgba(38, 99, 223, 0.1) 14.81%, rgba(117, 143, 240, 0.1) 88.76%);
+}
+
+main .signup[disabled] {
+  cursor: not-allowed;
+  color: #FFFFFF;
+  background: linear-gradient(113.87deg, #2663DF 14.81%, #758FF0 88.76%);
 }
 
 @media (min-width: 768px) {

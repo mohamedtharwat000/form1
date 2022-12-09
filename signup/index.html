@@ -22,24 +22,28 @@
       <div class="signup-text">
         <h1>Create Account</h1>
         <p>Go ahead and sign up, let everyone know how awesome you are!</p>
-        <form>
+        <form id="form">
           <div>
             <img src="../assets/imags/User.png" alt="user">
-            <input required type="text" name="username" id="username" placeholder="username" maxlength="15">
+            <input type="text" name="username" id="username" placeholder="username" maxlength="15">
           </div>
+          <p class="error user-error"></p>
           <div>
             <img src="../assets/imags/EnvelopeSimple.png" alt="email">
-            <input required type="email" name="email" id="email" placeholder="Email">
+            <input type="email" name="email" id="email" placeholder="Email">
           </div>
+          <p class="error email-error"></p>
           <div>
             <img src="../assets/imags/LockKey.png" alt="password">
-            <input required type="password" name="password" id="password" placeholder="Password">
+            <input type="password" name="password" id="password" placeholder="Password">
           </div>
+          <p class="error password-error"></p>
           <div>
             <img src="../assets/imags/LockKey.png" alt="password">
-            <input required type="password" name="confirmpassword" id="confirmpassword" placeholder="Confirm password">
+            <input type="password" name="confirmpassword" id="confirmpassword" placeholder="Confirm password">
           </div>
-          <a href="../succeed/index.html" id="signup">Create Account</a>
+          <p class="error confirmpassword-error"></p>
+          <input id="signup" class="signup" type="submit">
         </form>
       </div>
     </div>

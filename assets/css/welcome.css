@@ -59,14 +59,11 @@ main a {
   justify-content: center;
   align-items: center;
   padding: 0px 50px;
-
   width: 100%;
   height: 60px;
-
   background: linear-gradient(113.87deg, #2663DF 14.81%, #758FF0 88.76%);
   box-shadow: 0px 6px 18px #9CADF2;
   border-radius: 10px;
-
   font-family: 'Mulish';
   font-style: normal;
   font-weight: 700;
