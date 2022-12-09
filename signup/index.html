@@ -5,11 +5,45 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>sign up</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/reset.css">
+  <link rel="stylesheet" href="../assets/css/signup.css">
+  <script defer src="../assets/js/main.js"></script>
 </head>
 
 <body>
-
+  <main>
+    <div class="container">
+      <div class="signup-image"></div>
+      <div class="signup-text">
+        <h1>Create Account</h1>
+        <p>Go ahead and sign up, let everyone know how awesome you are!</p>
+        <form>
+          <div>
+            <img src="../assets/imags/User.png" alt="user">
+            <input required type="text" name="username" id="username" placeholder="username">
+          </div>
+          <div>
+            <img src="../assets/imags/EnvelopeSimple.png" alt="email">
+            <input required type="email" name="email" id="email" placeholder="Email">
+          </div>
+          <div>
+            <img src="../assets/imags/LockKey.png" alt="password">
+            <input required type="password" name="password" id="password" placeholder="Password">
+          </div>
+          <div>
+            <img src="../assets/imags/LockKey.png" alt="password">
+            <input required type="password" name="confirmpassword" id="confirmpassword" placeholder="Confirm password">
+          </div>
+          <a href="../succeed/index.html" id="signup">Create Account</a>
+        </form>
+      </div>
+    </div>
+  </main>
 </body>
 
 </html>

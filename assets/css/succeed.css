@@ -13,10 +13,12 @@ main .container {
   padding: 40px 0;
   border-radius: 10px;
   margin: auto;
+  width: 375px;
+  height: 733px;
 }
 
 main .succeed-image {
-  background-image: url(../assets/image-succeed-mobile.png);
+  background-image: url(../imags/image-succeed-mobile.png);
   border-radius: 10px;
   width: 322px;
   height: 315px;
@@ -29,6 +31,7 @@ main .succeed-text {
   align-items: center;
   gap: 2rem;
   padding: 3rem 0;
+  width: 322px;
 }
 
 main h1 {
@@ -55,7 +58,7 @@ main p {
 @media (min-width: 768px) {
 
   main {
-    background: url(../assets/gradient-background.png), #FFFFFF;
+    background: url(../imags/gradient-background.png), #FFFFFF;
     background-size: 100% 150%;
     display: flex;
     justify-content: center;
@@ -67,7 +70,7 @@ main p {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    margin: 40px;
+    margin: 0 40px;
     padding: 40px;
     width: 1080px;
     height: 576px;
@@ -77,15 +80,21 @@ main p {
 
   main .succeed-image {
     flex: 1;
-    background-image: url(../assets/image-succeed-desktop.png);
+    background-image: url(../imags/image-succeed-desktop.png);
     background-position: 50%;
-    width: 450px;
+    /* width: 450px; */
     height: 456px;
+    width: auto;
   }
 
   main .succeed-text {
     flex: 1;
     align-items: start;
+    width: auto;
+  }
+
+    main .succeed-text p {
+    text-align: start;
   }
 
 }

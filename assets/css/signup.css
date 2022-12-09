@@ -11,25 +11,26 @@ main .container {
   align-items: center;
   gap: 40px;
   padding: 40px 0;
-  width: 315px;
   border-radius: 10px;
   margin: auto;
+  width: 375px;
+  height: 931px;
 }
 
-main .welcome-image {
-  background-image: url(../assets/image-welcome-mobile.png);
+main .signup-image {
+  background-image: url(../imags/image-signup-mobile.png);
   border-radius: 10px;
   width: 315px;
   height: 315px;
 }
 
-main .welcome-text {
+main .signup-text {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
-
+  gap: 1.2rem;
+  width: 315px;
 }
 
 main h1 {
@@ -50,6 +51,47 @@ main p {
   line-height: 160%;
   text-align: center;
   color: #1F1249;
+}
+
+main form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+main form div {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  padding: 10px 20px;
+  gap: 12px;
+  width: 315px;
+  height: 60px;
+  background: #FFFFFF;
+  border: 1px solid #DBE3FF;
+  border-radius: 10px;
+}
+
+main form div img {
+  padding-right: 10px;
+  border-right: 1px solid #DBE3FF;
+}
+
+main form input {
+  width: 234px;
+  height: 44px;
+  font-family: 'Mulish';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 140%;
+  display: flex;
+  align-items: center;
+  color: #3B3B3B;
 }
 
 main a {
@@ -74,10 +116,15 @@ main a {
   color: #FFFFFF;
 }
 
+main a:hover {
+  color: #08174E;
+  background: linear-gradient(113.87deg, rgba(38, 99, 223, 0.1) 14.81%, rgba(117, 143, 240, 0.1) 88.76%);
+}
+
 @media (min-width: 768px) {
 
   main {
-    background: url(../assets/gradient-background.png), #FFFFFF;
+    background: url(../imags/gradient-background.png), #FFFFFF;
     background-size: 100% 150%;
     display: flex;
     justify-content: center;
@@ -87,27 +134,41 @@ main a {
   main .container {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    margin: 40px;
-    padding: 40px;
+    padding: 60px;
+    margin: 0 60px;
+    gap: 60px;
     width: 1080px;
-    height: 435px;
+    height: 656px;
     background: rgba(245, 247, 255, 0.85);
     border-radius: 10px;
   }
 
-  main .welcome-image {
+  main .signup-image {
     flex: 1;
-    background-image: url(../assets/image-welcome-desktop.png);
+    background-image: url(../imags/image-signup-desktop.png);
     background-position: 50%;
-    width: 400px;
-    height: 300px;
+    /* width: 450px; */
+    height: 536px;
+    width: auto;
   }
 
-  main .welcome-text {
+  main .signup-text {
     flex: 1;
     align-items: start;
+  }
+
+  main h1 {
+    font-size: 5vmin;
+  }
+
+  main .signup-text p {
+    text-align: start;
+  }
+
+  main form div {
+    width: 100%;
   }
 
 }
