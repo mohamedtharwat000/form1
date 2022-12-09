@@ -1,0 +1,91 @@
+
+main {
+  background: rgba(245, 247, 255, 0.85);
+  min-height: 100vh;
+}
+
+main .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  padding: 40px 0;
+  border-radius: 10px;
+  margin: auto;
+}
+
+main .succeed-image {
+  background-image: url(../assets/image-succeed-mobile.png);
+  border-radius: 10px;
+  width: 322px;
+  height: 315px;
+}
+
+main .succeed-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 3rem 0;
+}
+
+main h1 {
+font-family: 'Mulish';
+font-style: normal;
+font-weight: 800;
+font-size: 28px;
+line-height: 120%;
+text-transform: capitalize;
+color: #2D2D2D;
+text-align-last: center;
+}
+
+main p {
+  font-family: 'Mulish';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 160%;
+  text-align: center;
+  color: #1F1249;
+}
+
+@media (min-width: 768px) {
+
+  main {
+    background: url(../assets/gradient-background.png), #FFFFFF;
+    background-size: 100% 150%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  main .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 40px;
+    padding: 40px;
+    width: 1080px;
+    height: 576px;
+    background: rgba(245, 247, 255, 0.85);
+    border-radius: 10px;
+  }
+
+  main .succeed-image {
+    flex: 1;
+    background-image: url(../assets/image-succeed-desktop.png);
+    background-position: 50%;
+    width: 450px;
+    height: 456px;
+  }
+
+  main .succeed-text {
+    flex: 1;
+    align-items: start;
+  }
+
+}
