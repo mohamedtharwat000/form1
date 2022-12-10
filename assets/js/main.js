@@ -9,63 +9,65 @@ const signUp = document.getElementById("signup");
 const errorMs = document.getElementsByClassName("error");
 
 // regx for user name and email inputs
-const userNameRegx = /(^[a-zA-Z])(.{3,13})([a-zA-Z]$)/;
+const userNameRegx = /(^[a-zA-Z])(.[a-zA-Z0-9]{2,12})([a-zA-Z]$)/;
 const emailRegx = /(^[\w])(.*)(\@)(.*)(\.[\w]{2,4}$)/;
-
-// code to handle if user didn't fill form or just typed space
-for (let input of allInputs) {
-  if (input.value.trim() === "") {
-    wrongInput(input, `*${input.getAttribute("name")} is required`);
-  }
-}
 
 // code to handle user name input
 userName.addEventListener("input", userNameFn);
-function userNameFn(e) {
+function userNameFn() {
   if (userNameRegx.test(userName.value)) {
-    correctInput(e.target);
+    correctInput(userName);
+  } else if (userName.value.trim() === "") {
+    wrongInput(userName, `*${userName.getAttribute("name")} is required`);
+  } else if (userName.value.length < 5 || userName.value.length > 15) {
+    wrongInput(
+      userName,
+      `*${userName.getAttribute("name")} must be between 5 and 15 letters`
+    );
   } else {
-    if (userName.value.length < 5 || userName.value.length > 15) {
-      wrongInput(
-        e.target,
-        `*${userName.getAttribute("name")} must be between 5 and 15 letters`
-      );
-    } else {
-      wrongInput(
-        e.target,
-        "only letters and numbers without numbers at start and end,"
-      );
-    }
+    wrongInput(
+      userName,
+      "only letters and numbers without numbers at start and end,"
+    );
   }
 }
 
 // code tohandle email input
 email.addEventListener("input", emailFn);
-function emailFn(e) {
+function emailFn() {
   if (emailRegx.test(email.value)) {
-    correctInput(e.target);
+    correctInput(email);
+  } else if (email.value.trim() === "") {
+    wrongInput(email, `*${email.getAttribute("name")} is required`);
   } else {
-    wrongInput(e.target, "please enter valid email address");
+    wrongInput(email, "please enter valid email address");
   }
 }
 
 // code tohandle password input
 password.addEventListener("input", passwordFn);
-function passwordFn(e) {
-  if (password.value.length < 8) {
-    wrongInput(e.target, "Password must be at least 8 characters");
+function passwordFn() {
+  if (password.value === "") {
+    wrongInput(password, `*${password.getAttribute("name")} is required`);
+  } else if (password.value.length < 8) {
+    wrongInput(password, "Password must be at least 8 characters");
   } else {
-    correctInput(e.target);
+    correctInput(password);
   }
 }
 
 // code tohandle confirm password input
 confirmPassword.addEventListener("input", confirmPasswordFn);
 function confirmPasswordFn(e) {
-  if (confirmPassword.value !== password.value) {
-    wrongInput(e.target, "Passwords don't match");
+  if (confirmPassword.value === "") {
+    wrongInput(
+      confirmPassword,
+      `*${confirmPassword.getAttribute("name")} is required`
+    );
+  } else if (confirmPassword.value !== password.value) {
+    wrongInput(confirmPassword, "Passwords don't match");
   } else {
-    correctInput(e.target);
+    correctInput(confirmPassword);
   }
 }
 
@@ -73,31 +75,32 @@ function confirmPasswordFn(e) {
 function correctInput(e) {
   e.parentElement.style.border = "1px solid green";
   showMessage(e, "");
-  e.dataset.valid = "true";
-  submitToggle();
+  // e.dataset.valid = "true";
+  // submitToggle();
 }
 
 // function to handle wrong inputs
 function wrongInput(e, message) {
   e.parentElement.style.border = "1px solid red";
   showMessage(e, message);
-  e.dataset.valid = "false";
-  submitToggle();
+  // e.dataset.valid = "false";
+  // submitToggle();
 }
 
 // function to toggle submit button disabled | enabled
-function submitToggle() {
-  let inputs = Array.from(allInputs);
-  let isValid = inputs.every(function (input, index, arr) {
-    return input.dataset.valid === "true";
-  });
+// function submitToggle() {
+//   let inputs = Array.from(allInputs);
+//   let isValid = inputs.every(function (input, index, arr) {
+//     return input.dataset.valid === "true";
+//   });
 
-  if (isValid === true) {
-    signUp.removeAttribute("disabled");
-  } else {
-    signUp.setAttribute("disabled", "disabled");
-  }
-}
+//   if (isValid === true) {
+//     signUp.removeAttribute("disabled");
+//   } else {
+//     signUp.setAttribute("disabled", "disabled");
+//   }
+// }
+// submitToggle();
 
 // helper function to show error message
 function showMessage(a, b) {
@@ -118,3 +121,55 @@ function showMessage(a, b) {
     }
   }
 }
+
+// fetch code
+form.addEventListener("submit", submitFn);
+function submitFn(e) {
+  e.preventDefault();
+
+  fetch("https://goldblv.com/api/hiring/tasks/register", {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      username: userName.value,
+      email: email.value,
+      password: password.value,
+      password_confirmation: confirmPassword.value,
+    }),
+  })
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
+      if (data.message === "The given data was invalid.") {
+        for (let i in data.errors) {
+          if (data.errors.username === data.errors[i]) {
+            showMessage(userName, data.errors.username.join());
+          } else if (data.errors.email === data.errors[i]) {
+            showMessage(email, data.errors.email.join());
+          } else if (data.errors.password === data.errors[i]) {
+            if (
+              data.errors.password.join() ===
+              "The password confirmation does not match."
+            ) {
+              showMessage(confirmPassword, data.errors.password.join());
+            } else {
+              showMessage(password, data.errors.password.join());
+            }
+          }
+        }
+      } else {
+        localStorage.setItem("email", data.email);
+        window.location.href = "../succeed/index.html";
+        localStorage.removeItem("email");
+      }
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+}
+
