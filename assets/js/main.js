@@ -165,7 +165,6 @@ function submitFn(e) {
       } else {
         localStorage.setItem("email", data.email);
         window.location.href = "../succeed/index.html";
-        localStorage.removeItem("email");
       }
     })
     .catch(function (error) {
