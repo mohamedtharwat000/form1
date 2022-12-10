@@ -32,7 +32,7 @@ function userNameFn() {
   }
 }
 
-// code tohandle email input
+// code to handle email input
 email.addEventListener("input", emailFn);
 function emailFn() {
   if (emailRegx.test(email.value)) {
@@ -44,7 +44,7 @@ function emailFn() {
   }
 }
 
-// code tohandle password input
+// code to handle password input
 password.addEventListener("input", passwordFn);
 function passwordFn() {
   if (password.value === "") {
@@ -56,7 +56,7 @@ function passwordFn() {
   }
 }
 
-// code tohandle confirm password input
+// code to handle confirm password input
 confirmPassword.addEventListener("input", confirmPasswordFn);
 function confirmPasswordFn(e) {
   if (confirmPassword.value === "") {
@@ -75,32 +75,31 @@ function confirmPasswordFn(e) {
 function correctInput(e) {
   e.parentElement.style.border = "1px solid green";
   showMessage(e, "");
-  // e.dataset.valid = "true";
-  // submitToggle();
+  e.dataset.valid = "true";
+  submitToggle();
 }
 
 // function to handle wrong inputs
 function wrongInput(e, message) {
   e.parentElement.style.border = "1px solid red";
   showMessage(e, message);
-  // e.dataset.valid = "false";
-  // submitToggle();
+  e.dataset.valid = "false";
+  submitToggle();
 }
 
 // function to toggle submit button disabled | enabled
-// function submitToggle() {
-//   let inputs = Array.from(allInputs);
-//   let isValid = inputs.every(function (input, index, arr) {
-//     return input.dataset.valid === "true";
-//   });
+function submitToggle() {
+  let inputs = Array.from(allInputs);
+  let isValid = inputs.every(function (input, index, arr) {
+    return input.dataset.valid === "true";
+  });
 
-//   if (isValid === true) {
-//     signUp.removeAttribute("disabled");
-//   } else {
-//     signUp.setAttribute("disabled", "disabled");
-//   }
-// }
-// submitToggle();
+  if (isValid === true) {
+    signUp.removeAttribute("disabled");
+  } else {
+    signUp.setAttribute("disabled", "disabled");
+  }
+}
 
 // helper function to show error message
 function showMessage(a, b) {
