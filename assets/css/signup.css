@@ -13,7 +13,7 @@ main .container {
   padding: 40px 0;
   border-radius: 10px;
   margin: auto;
-  width: 375px;
+  width: 320px;
   height: 931px;
 }
 
@@ -81,7 +81,7 @@ main form div img {
 
 main form input:not(.signup) {
   flex: 1;
-  width: 234px;
+  width: 230px;
   height: 44px;
   font-family: 'Mulish';
   font-style: normal;
