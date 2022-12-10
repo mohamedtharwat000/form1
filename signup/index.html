@@ -25,22 +25,22 @@
         <form id="form">
           <div>
             <img src="../assets/imags/User.png" alt="user">
-            <input type="text" name="username" id="username" placeholder="username" maxlength="15">
+            <input type="text" name="username" id="username" placeholder="username" maxlength="15" data-valid="false">
           </div>
           <p class="error user-error"></p>
           <div>
             <img src="../assets/imags/EnvelopeSimple.png" alt="email">
-            <input type="email" name="email" id="email" placeholder="Email">
+            <input type="email" name="email" id="email" placeholder="Email" data-valid="false">
           </div>
           <p class="error email-error"></p>
           <div>
             <img src="../assets/imags/LockKey.png" alt="password">
-            <input type="password" name="password" id="password" placeholder="Password">
+            <input type="password" name="password" id="password" placeholder="Password" data-valid="false">
           </div>
           <p class="error password-error"></p>
           <div>
             <img src="../assets/imags/LockKey.png" alt="password">
-            <input type="password" name="confirmpassword" id="confirmpassword" placeholder="Confirm password">
+            <input type="password" name="confirmpassword" id="confirmpassword" placeholder="Confirm password" data-valid="false">
           </div>
           <p class="error confirmpassword-error"></p>
           <input id="signup" class="signup" type="submit">

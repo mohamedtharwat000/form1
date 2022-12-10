@@ -72,7 +72,7 @@ main a {
   color: #FFFFFF;
 }
 
-main a:hover {
+main a:active {
   color: #08174E;
   background: linear-gradient(113.87deg, rgba(38, 99, 223, 0.1) 14.81%, rgba(117, 143, 240, 0.1) 88.76%);
 }
@@ -104,8 +104,6 @@ main a:hover {
     flex: 1;
     background-image: url(../imags/image-welcome-desktop.png);
     background-position: 50%;
-    /* width: 400px; */
-    height: 300px;
     width: auto;
   }
 

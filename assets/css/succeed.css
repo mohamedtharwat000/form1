@@ -82,7 +82,6 @@ main p {
     flex: 1;
     background-image: url(../imags/image-succeed-desktop.png);
     background-position: 50%;
-    /* width: 450px; */
     height: 456px;
     width: auto;
   }
@@ -90,7 +89,6 @@ main p {
   main .succeed-text {
     flex: 1;
     align-items: start;
-    width: auto;
   }
 
     main .succeed-text p {

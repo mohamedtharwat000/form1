@@ -12,9 +12,6 @@ const errorMs = document.getElementsByClassName("error");
 const userNameRegx = /(^[a-zA-Z])(.{3,13})([a-zA-Z]$)/;
 const emailRegx = /(^[\w])(.*)(\@)(.*)(\.[\w]{2,4}$)/;
 
-// global variable to check if form is valid
-let isValid = false;
-
 // code to handle if user didn't fill form or just typed space
 for (let input of allInputs) {
   if (input.value.trim() === "") {
@@ -76,7 +73,7 @@ function confirmPasswordFn(e) {
 function correctInput(e) {
   e.parentElement.style.border = "1px solid green";
   showMessage(e, "");
-  isValid = true;
+  e.dataset.valid = "true";
   submitToggle();
 }
 
@@ -84,20 +81,21 @@ function correctInput(e) {
 function wrongInput(e, message) {
   e.parentElement.style.border = "1px solid red";
   showMessage(e, message);
-  isValid = false;
+  e.dataset.valid = "false";
   submitToggle();
 }
 
 // function to toggle submit button disabled | enabled
 function submitToggle() {
+  let inputs = Array.from(allInputs);
+  let isValid = inputs.every(function (input, index, arr) {
+    return input.dataset.valid === "true";
+  });
+
   if (isValid === true) {
-    if (signUp.hasAttribute("disabled") === true) {
-      signUp.removeAttribute("disabled");
-    }
+    signUp.removeAttribute("disabled");
   } else {
-    if (signUp.hasAttribute("disabled") === false) {
-      signUp.setAttribute("disabled", "disabled");
-    }
+    signUp.setAttribute("disabled", "disabled");
   }
 }
 

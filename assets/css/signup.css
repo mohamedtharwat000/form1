@@ -68,7 +68,7 @@ main form div {
   padding: 10px 20px;
   gap: 12px;
   width: 315px;
-  height: 60px;
+  height: 50px;
   background: #FFFFFF;
   border: 1px solid #DBE3FF;
   border-radius: 10px;
@@ -118,7 +118,7 @@ main .signup {
   color: #FFFFFF;
 }
 
-main .signup:hover {
+main .signup:active {
   color: #08174E;
   background: linear-gradient(113.87deg, rgba(38, 99, 223, 0.1) 14.81%, rgba(117, 143, 240, 0.1) 88.76%);
 }
@@ -126,7 +126,7 @@ main .signup:hover {
 main .signup[disabled] {
   cursor: not-allowed;
   color: #FFFFFF;
-  background: linear-gradient(113.87deg, #2663DF 14.81%, #758FF0 88.76%);
+  background: linear-gradient(113.87deg, #df262688 14.81%, #f0757588 88.76%);
 }
 
 @media (min-width: 768px) {
@@ -157,7 +157,6 @@ main .signup[disabled] {
     flex: 1;
     background-image: url(../imags/image-signup-desktop.png);
     background-position: 50%;
-    /* width: 450px; */
     height: 536px;
     width: auto;
   }
