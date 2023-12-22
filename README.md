@@ -4,7 +4,7 @@ Simple Form Validation
 
 ## Description
 
-This project implements a simple client-side and server-side form validation using HTML, CSS, and JavaScript. The form contains fields for name, email, and message. Form data is validated on submit and error messages are displayed if any field is invalid.
+This project implements a simple client-side and server-side form validation using HTML, CSS, and JavaScript. The form contains fields for name, email, and password. Form data is validated on submit and error messages are displayed if any field is invalid.
 
 The main goals of this project are:
 
@@ -25,9 +25,9 @@ Try submitting the form with invalid and valid values to see it in action.
 
 The form has the following features:
 
-- Name field validated to be 2-20 characters long
-- Email field validated to contain a valid email format
-- Message field validated to be 10-200 characters long
+- Name field validation 
+- Email field validation 
+- Password field validation 
 - Error messages displayed in red below each field when invalid
 - Form fields highlighted in red when invalid
 - Success message displayed in green when form is submitted successfully
