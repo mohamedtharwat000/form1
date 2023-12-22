@@ -58,7 +58,6 @@ Contributions are welcome! Here are some ways you can contribute to this project
 - Write documentation and improve existing docs
 
 To contribute:
-
 1. Fork the repository
 2. Create a new branch
 3. Make your changes and commit them
@@ -72,4 +71,4 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ## Credits
 
-Form created by Mohamed Tharwat
+created by Mohamed Tharwat
